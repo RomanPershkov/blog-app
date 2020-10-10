@@ -17,7 +17,7 @@ export class BlogController {
     }
 
     @Get('post/:postID')
-    async getPost(@Res() res, @Param('PostID', new ValidateObjectId()) postID) {
+    async getPost(@Res() res, @Param('postID', new ValidateObjectId()) postID) {
         const post = await this.blogService.getPost(postID);
         if(!post) {
             throw new NotFoundException('Поста не существует');
